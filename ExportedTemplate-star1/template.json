@@ -1,0 +1,97 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "botServices_star12_bot_name": {
+            "defaultValue": "star12-bot",
+            "type": "String"
+        },
+        "userAssignedIdentities_star12_bot_externalid": {
+            "defaultValue": "/subscriptions/3804135f-1724-4322-8949-1201d4b3f9bf/resourceGroups/star1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/star12-bot",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.BotService/botServices",
+            "apiVersion": "2022-09-15",
+            "name": "[parameters('botServices_star12_bot_name')]",
+            "location": "global",
+            "tags": {
+                "WebAppLinked": "true"
+            },
+            "sku": {
+                "name": "S1"
+            },
+            "kind": "azurebot",
+            "properties": {
+                "displayName": "[parameters('botServices_star12_bot_name')]",
+                "iconUrl": "https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png",
+                "endpoint": "[concat('https://', parameters('botServices_star12_bot_name'), '-8826.azurewebsites.net/api/messages')]",
+                "msaAppId": "80331db4-50ab-4477-857b-c81b9da31e92",
+                "msaAppTenantId": "9c7ca6d5-0d6d-4ea0-93ac-fa172d54c4e0",
+                "msaAppType": "UserAssignedMSI",
+                "msaAppMSIResourceId": "[parameters('userAssignedIdentities_star12_bot_externalid')]",
+                "luisAppIds": [],
+                "isStreamingSupported": false,
+                "schemaTransformationVersion": "1.3",
+                "tenantId": "9c7ca6d5-0d6d-4ea0-93ac-fa172d54c4e0",
+                "isCmekEnabled": false,
+                "disableLocalAuth": false
+            }
+        },
+        {
+            "type": "Microsoft.BotService/botServices/channels",
+            "apiVersion": "2022-09-15",
+            "name": "[concat(parameters('botServices_star12_bot_name'), '/DirectLineChannel')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.BotService/botServices', parameters('botServices_star12_bot_name'))]"
+            ],
+            "properties": {
+                "properties": {
+                    "sites": [
+                        {
+                            "siteName": "Default Site",
+                            "isEnabled": true,
+                            "isV1Enabled": true,
+                            "isV3Enabled": true,
+                            "isSecureSiteEnabled": false,
+                            "isBlockUserUploadEnabled": false
+                        }
+                    ],
+                    "extensionKey1": "n-q7f0firpg.AgE-jral0xqMWuYXDKY1vKrZj2tX43GUgCgz6FHry9c",
+                    "extensionKey2": "n-q7f0firpg.Z_QqjTvnjh_l0b7OQFGge1IHkQBKvtZHgpWrV8tpHnU"
+                },
+                "etag": "W/\"84bc90c20cbb08532cde8ead0433656d08/10/2023 10:37:12\"",
+                "channelName": "DirectLineChannel",
+                "location": "global"
+            }
+        },
+        {
+            "type": "Microsoft.BotService/botServices/channels",
+            "apiVersion": "2022-09-15",
+            "name": "[concat(parameters('botServices_star12_bot_name'), '/WebChatChannel')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.BotService/botServices', parameters('botServices_star12_bot_name'))]"
+            ],
+            "properties": {
+                "properties": {
+                    "sites": [
+                        {
+                            "siteName": "Default Site",
+                            "isEnabled": true,
+                            "isWebchatPreviewEnabled": true,
+                            "isBlockUserUploadEnabled": false
+                        }
+                    ]
+                },
+                "etag": "W/\"fdd9d57f5b8c5082b0a47fa2fbff1a9008/10/2023 10:37:12\"",
+                "channelName": "WebChatChannel",
+                "location": "global"
+            }
+        }
+    ]
+}

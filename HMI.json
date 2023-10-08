@@ -1,0 +1,327 @@
+[
+    {
+        "id": "ea4e967c9330dbbd",
+        "type": "tab",
+        "label": "Flow 6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bf6c1a8ded2d3287",
+        "type": "ui_text_input",
+        "z": "ea4e967c9330dbbd",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "ad4a7d0c56529b07",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 580,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62ba0c9df8d5a35d",
+        "type": "ui_button",
+        "z": "ea4e967c9330dbbd",
+        "name": "",
+        "group": "5c43696eef118d64",
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "passthru": true,
+        "label": "Buscar",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "ddcba634cad6c8a7",
+                "0c5569a67e29ea0b"
+            ]
+        ]
+    },
+    {
+        "id": "0c5569a67e29ea0b",
+        "type": "function",
+        "z": "ea4e967c9330dbbd",
+        "name": "function 1",
+        "func": " msg.payload= \"NASA-STD-6001B w.   Material Evaluation Requirements a. [FOCR 7] Materials located in habitable areas of spacecraft, including the materials of the spacecraft, stowed equipment, and experiments, shall be evaluated for flammability and offgassing. b. [FOCR 8] All materials located in other areas shall be evaluated for flammability. c. [FOCR 9] Materials that are exposed to LOX, GOX, and other reactive fluids shall be evaluated for compatibility with the fluid in their use application\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 360,
+        "wires": [
+            [
+                "b89aba5bc09831dc",
+                "8f27324977a31e67"
+            ]
+        ]
+    },
+    {
+        "id": "b89aba5bc09831dc",
+        "type": "ui_text",
+        "z": "ea4e967c9330dbbd",
+        "group": "9787038ea8a2c131",
+        "order": 3,
+        "width": 6,
+        "height": 6,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 970,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ad7c0e288f6c442a",
+        "type": "ui_media",
+        "z": "ea4e967c9330dbbd",
+        "group": "9787038ea8a2c131",
+        "name": "",
+        "width": 6,
+        "height": 6,
+        "order": 1,
+        "category": "NASA",
+        "file": "un-logotipo-firmar-fuera-de-la-sede-de-la-exploracion-espacial-technologies-corp-tambien-conocida-como-spacex-y-con-un-cohete-spacex-falcon-9-en-hawtho-krjjht (1).jpg",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": false,
+        "onstart": true,
+        "scope": "local",
+        "tooltip": "",
+        "x": 750,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "093aebc2121c914b",
+        "type": "function",
+        "z": "ea4e967c9330dbbd",
+        "name": "function 4",
+        "func": "msg.payload=\"  \"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 480,
+        "wires": [
+            [
+                "b89aba5bc09831dc"
+            ]
+        ]
+    },
+    {
+        "id": "eea65acb2b46acbe",
+        "type": "ui_button",
+        "z": "ea4e967c9330dbbd",
+        "d": true,
+        "name": "",
+        "group": "5c43696eef118d64",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "Buscar2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "093aebc2121c914b",
+                "cf494cfe379f6f53"
+            ]
+        ]
+    },
+    {
+        "id": "cf494cfe379f6f53",
+        "type": "ui_media",
+        "z": "ea4e967c9330dbbd",
+        "group": "63f20923a30c12b5",
+        "name": "",
+        "width": "8",
+        "height": "5",
+        "order": 2,
+        "category": "",
+        "file": "un-logotipo-firmar-fuera-de-la-sede-de-la-exploracion-espacial-technologies-corp-tambien-conocida-como-spacex-y-con-un-cohete-spacex-falcon-9-en-hawtho-krjjht (1).jpg",
+        "layout": "adjust",
+        "showcontrols": false,
+        "loop": false,
+        "onstart": true,
+        "scope": "local",
+        "tooltip": "",
+        "x": 730,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddcba634cad6c8a7",
+        "type": "function",
+        "z": "ea4e967c9330dbbd",
+        "name": "Format Payload for notification node",
+        "func": "const socketid = msg.socketid;\nvar destURL = '/ui/#!/4?socketid='+socketid;\n\n//Get AuthLoginCredentials\nconst AuthLoginCredentials = global.get('AuthLoginCredentials');\n//check that fromURL is in AuthLoginCredentials\nif (AuthLoginCredentials.hasOwnProperty(socketid)) {\n    if (AuthLoginCredentials[socketid].hasOwnProperty('fromURL')) {\n    destURL = fromURL+'?socketid='+socketid;\n    destURL = AuthLoginCredentials[socketid].fromURL + '?socketid='+socketid;\n    }\n}\n\nmsg.timeout = 1;\nmsg.topic = ``;\n\nmsg.url = destURL;\n\nmsg.payload = '<!DOCTYPE html><html><head><title>Vizualizacion</title></head><body>Vizualizacion<script>var url= \"'+msg.url+'\"; window.location.href = url; </script></body></html>';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f27324977a31e67",
+        "type": "play audio",
+        "z": "ea4e967c9330dbbd",
+        "name": "",
+        "voice": "0",
+        "x": 970,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "acca21a522f0b7d2",
+        "type": "ui_spacer",
+        "z": "ea4e967c9330dbbd",
+        "name": "spacer",
+        "group": "f5f7cada415a15e8",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b56115a1e8985b59",
+        "type": "ui_spacer",
+        "z": "ea4e967c9330dbbd",
+        "name": "spacer",
+        "group": "5c43696eef118d64",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "ad4a7d0c56529b07",
+        "type": "ui_group",
+        "name": "Buscador",
+        "tab": "69e3b08450578e6c",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5c43696eef118d64",
+        "type": "ui_group",
+        "name": "Boton Buscador",
+        "tab": "69e3b08450578e6c",
+        "order": 2,
+        "disp": true,
+        "width": "11",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9787038ea8a2c131",
+        "type": "ui_group",
+        "name": "AGENTE INTELIGENTE",
+        "tab": "69e3b08450578e6c",
+        "order": 4,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63f20923a30c12b5",
+        "type": "ui_group",
+        "name": "Tab",
+        "tab": "26f77101f81fc15e",
+        "order": 5,
+        "disp": false,
+        "width": "25",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f5f7cada415a15e8",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "d9365e0f.e1bf6",
+        "order": 1,
+        "disp": false,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "69e3b08450578e6c",
+        "type": "ui_tab",
+        "name": "Pagina Principal",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "26f77101f81fc15e",
+        "type": "ui_tab",
+        "name": "RESULTADO DE IA",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": true
+    },
+    {
+        "id": "d9365e0f.e1bf6",
+        "type": "ui_tab",
+        "d": true,
+        "name": "Inicio de Sesion",
+        "icon": "login",
+        "order": 3,
+        "disabled": false,
+        "hidden": true
+    }
+]
